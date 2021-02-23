@@ -88,22 +88,29 @@ public Action Commands_CommandListener(int client, const char[] command, int arg
 	}
 	else {
 		LogToFileEx(g_sCmdLogPath, "%L used: %s %s", client, command, f_sCmdString);
-		
+		Cmd_Webhook("%L used: %s %s", client, command, f_sCmdString);
 	}
 }
 
-public Action Cmd_Webhook(int client, int argc) {
+public Action Cmd_Webhook(const char[] content) {
 	DiscordWebHook hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
 	hook.SetUsername("Semih-Kosavar");
 	hook.SlackMode = false;
-	hook.SetContent("Slack modun olayı ne lan? şu an false);
+	hook.SetContent("Slack modun olayı ne lan? şu an false");
 	hook.Send();
 	delete hook;
 	
 	hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
 	hook.SetUsername("Semih-Kosavar");
 	hook.SlackMode = true;
-	hook.SetContent("Slack modun olayı ne lan? şu an true);
+	hook.SetContent("Slack modun olayı ne lan? şu an true");
+	hook.Send();
+	delete hook;
+	
+	hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
+	hook.SetUsername("Semih-Kosavar");
+	hook.SlackMode = true;
+	hook.SetContent(content);
 	hook.Send();
 	delete hook;
 }
