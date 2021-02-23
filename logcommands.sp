@@ -23,6 +23,7 @@
 #pragma semicolon 1
 
 #define PLUGIN_VERSION "1.10"
+#define WEBHOOK "https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx"
 
 // add here the ignore commands that will not logged (maybe a cfg file in a future)
 char ignoredCommands[][] =
@@ -97,14 +98,14 @@ public Action Commands_CommandListener(int client, const char[] command, int arg
 }
 
 public Action Cmd_Webhook(const char[] content) {
-	DiscordWebHook hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
+	DiscordWebHook hook = new DiscordWebHook(WEBHOOK);
 	hook.SetUsername("Semih-Kosavar");
 	hook.SlackMode = false;
 	hook.SetContent("deneme yapıyorum.");
 	hook.Send();
 	delete hook;
 	
-	hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
+	hook = new DiscordWebHook(WEBHOOK);
 	hook.SetUsername("Semih-Kosavar");
 	hook.SlackMode = false;
 	hook.SetContent(content);
