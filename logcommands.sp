@@ -96,20 +96,13 @@ public Action Cmd_Webhook(const char[] content) {
 	DiscordWebHook hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
 	hook.SetUsername("Semih-Kosavar");
 	hook.SlackMode = false;
-	hook.SetContent("Slack modun olayı ne lan? şu an false");
+	hook.SetContent("deneme yapıyorum.");
 	hook.Send();
 	delete hook;
 	
 	hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
 	hook.SetUsername("Semih-Kosavar");
-	hook.SlackMode = true;
-	hook.SetContent("Slack modun olayı ne lan? şu an true");
-	hook.Send();
-	delete hook;
-	
-	hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
-	hook.SetUsername("Semih-Kosavar");
-	hook.SlackMode = true;
+	hook.SlackMode = false;
 	hook.SetContent(content);
 	hook.Send();
 	delete hook;
