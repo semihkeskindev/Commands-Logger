@@ -83,12 +83,14 @@ public Action Commands_CommandListener(int client, const char[] command, int arg
 	
 	GetCmdArgString(f_sCmdString, sizeof(f_sCmdString));
 	
-	if(!IsClientInGame(client)) {
+	if(!IsClientInGame(client))
+	{
 		LogToFileEx(g_sCmdLogPath, "No ingame client %i used: %s %s", client, command, f_sCmdString);
 	}
-	else {
+	else
+	{
 		LogToFileEx(g_sCmdLogPath, "%L used: %s %s", client, command, f_sCmdString);
-		Cmd_Webhook("%L used: %s %s", client, command, f_sCmdString);
+		Cmd_Webhook("deneme yapıyoruz subhanallah");
 	}
 }
 
