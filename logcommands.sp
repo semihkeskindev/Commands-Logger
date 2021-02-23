@@ -22,6 +22,8 @@
 #pragma newdecls required
 #pragma semicolon 1
 
+#define PLUGIN_VERSION "1.10"
+
 // add here the ignore commands that will not logged (maybe a cfg file in a future)
 char ignoredCommands[][] =
 {
