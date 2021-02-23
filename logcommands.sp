@@ -17,6 +17,7 @@
 
 #include <sourcemod>
 #include <sdktools>
+#include <discord>
 
 #pragma newdecls required
 #pragma semicolon 1
@@ -82,8 +83,27 @@ public Action Commands_CommandListener(int client, const char[] command, int arg
 	
 	GetCmdArgString(f_sCmdString, sizeof(f_sCmdString));
 	
-	if(!IsClientInGame(client))
+	if(!IsClientInGame(client)) {
 		LogToFileEx(g_sCmdLogPath, "No ingame client %i used: %s %s", client, command, f_sCmdString);
-	else
+	}
+	else {
 		LogToFileEx(g_sCmdLogPath, "%L used: %s %s", client, command, f_sCmdString);
+		
+	}
+}
+
+public Action Cmd_Webhook(int client, int argc) {
+	DiscordWebHook hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
+	hook.SetUsername("Semih-Kosavar");
+	hook.SlackMode = false;
+	hook.SetContent("Slack modun olayı ne lan? şu an false);
+	hook.Send();
+	delete hook;
+	
+	hook = new DiscordWebHook("https://discord.com/api/webhooks/813516192022659123/XwX-tL_7IAv_q3L4jFQyGDDjBbBelpT5QnAleuXkJWTRKLm41GZVsazthuPfSgyvmfLx");
+	hook.SetUsername("Semih-Kosavar");
+	hook.SlackMode = true;
+	hook.SetContent("Slack modun olayı ne lan? şu an true);
+	hook.Send();
+	delete hook;
 }
